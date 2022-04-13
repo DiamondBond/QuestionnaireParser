@@ -2,37 +2,39 @@
 import sys
 import json
 import pandas as pd
-# WS = pd.read_excel('in.xlsx')
-# WS_np = np.array(WS)
 
-# print(WS_np)
+# [NOTES]
+# column A to R useless
+# column S to column U - age , gender & year (1, 2, or 3)
 
+# column V to AH = impulsivity [ABIS]
+# column AI to BR = difficulties in emotional regulation [DERS]
+# column BS to CB = ordered questions [AUDIT]
 
 
 def stripNAN(s):
     i = str(s).replace(", [nan, nan]", "")
     return i
 
+#filename = sys.argv[1]
+filename = "in.xlsx"
+columns = []
+columns.append('S') # Age
+columns.append('T') # Gender
+columns.append('U') # Year
 
-filename = sys.argv[1]
-# columns = []
-# dc = sys.argv[2]
-# nc = sys.argv[3]
-# columns.append(dc)
-# columns.append(nc)
 
+fc = ",".join(columns)
 
-# fc = ",".join(columns)
+columns_df = pd.read_excel(filename, sheet_name=0, usecols=fc)
+list = columns_df.values.tolist()
 
-# columns_df = pd.read_excel(filename, sheet_name=0, usecols=fc)
-# list = columns_df.values.tolist()
+# Strip [nan] entries
+cleanedList = stripNAN(list)
+dictList = eval(cleanedList)
 
-# # Strip [nan] entries
-# cleanedList = stripNAN(list)
-# dictList = eval(cleanedList)
-
-# # output columns
-# jsonString = json.dumps(dictList)
-# jsonFile = open("masterlist.json", "w")
-# jsonFile.write(jsonString)
-# print("\nList formatted and written to masterlist.json")
+# output columns
+jsonString = json.dumps(dictList)
+jsonFile = open("masterlist.json", "w")
+jsonFile.write(jsonString)
+print("\nList formatted and written to masterlist.json")
