@@ -15,23 +15,23 @@ def stripNAN(s):
 
 
 filename = sys.argv[1]
-columns = []
-dc = sys.argv[2]
-nc = sys.argv[3]
-columns.append(dc)
-columns.append(nc)
+# columns = []
+# dc = sys.argv[2]
+# nc = sys.argv[3]
+# columns.append(dc)
+# columns.append(nc)
 
 
-fc = ",".join(columns)
+# fc = ",".join(columns)
 
-columns_df = pd.read_excel(filename, sheet_name=0, usecols=fc)
-list = columns_df.values.tolist()
+# columns_df = pd.read_excel(filename, sheet_name=0, usecols=fc)
+# list = columns_df.values.tolist()
 
-# Strip [nan] entries
-cleanedList = stripNAN(list)
-dictList = eval(cleanedList)
+# # Strip [nan] entries
+# cleanedList = stripNAN(list)
+# dictList = eval(cleanedList)
 
-# output columns
+# # output columns
 # jsonString = json.dumps(dictList)
 # jsonFile = open("masterlist.json", "w")
 # jsonFile.write(jsonString)
