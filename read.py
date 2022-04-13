@@ -35,26 +35,23 @@ def stripContainer(s):
 #filename = sys.argv[1]
 filename = "in.xlsx"
 
-columns = []
-UserInfo = ['S','T','U']
-ABIS = ['V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH']
-DERS = ['AI','AJ','AK','AL','AM','AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW','AX','AY','AZ','BA','BR']
-AUDIT = ['BS','BT','BU','BV','BW','BX','BY','BZ','CA','CB']
-
+columns = ['V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH','AI','AJ','AK','AL','AM','AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW','AX','AY','AZ','BA','BR','BS','BT','BU','BV','BW','BX','BY','BZ','CA','CB']
 
 fc = ",".join(columns)
 
-columns_df = pd.read_excel(filename, sheet_name=0, usecols=fc, skiprows=[1])
+columns_df = pd.read_excel(filename, sheet_name=0, usecols=fc, skiprows=[1]).fillna(0)
 #.map({1:5, 2:4, 3:3, 4:2, 5:1})
 list = columns_df.values.tolist()
 
 # Strip [nan] entries
 cleanedList = stripNAN(list)
+#print(cleanedList)
+#cleanedList = 
 dictList = eval(cleanedList)
 
 # output columns
 jsonString = json.dumps(dictList)
-jsonFile = open("userinfo.json", "w")
+jsonFile = open("masterlist.json", "w")
 jsonFile.write(jsonString)
 #print("\nList formatted and written to userinfo.json")
 
