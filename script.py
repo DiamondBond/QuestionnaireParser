@@ -62,12 +62,14 @@ jsonFile.write(jsonString)
 #ABIS = ['V','W','X','Y','Z','AA','AB','AC','AD','AE','AF','AG','AH']
 
 # Deserializing JSON to dict
-with open("masterlist.json") as json_file:
-    data = json.load(json_file)
-    for i in range(len(data)):
-        our_list = data[i]
-        chunked_list = list()
-        chunk_size = 3
-        for i in range(0, len(our_list)):
-            chunked_list.append(our_list[i:i+chunk_size])
-            print(chunked_list)
+# with open("masterlist.json") as json_file:
+#     data = json.load(json_file)
+#     for i in range(len(data)):
+#         our_list = data[i]
+#         chunked_list = list()
+#         chunk_size = 3
+#         for i in range(0, len(our_list)):
+#             chunked_list.append(our_list[i:i+chunk_size])
+#             print(chunked_list)
+
+
