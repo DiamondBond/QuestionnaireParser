@@ -1,7 +1,12 @@
 # QuestionnaireParser
 Parser designed for questionnaires.
 
-# How to run
+# Dependencies
+```
+pip install pandas
+```
+
+# Running
 ```
 python3 main.py
 ```
