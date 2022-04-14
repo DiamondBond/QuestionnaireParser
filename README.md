@@ -1,9 +1,9 @@
 # QuestionnaireParser
 Parser designed for questionnaires.
 
-# read.py
-Reads from in.xlsx
-Outputs data to masterlist.json
+# How to run
+```
+python3 main.py input.xlsx
+```
 
-# calc.py
-Calculate ABIS, DERS & AUDIT
+Output file: out.xlsx
